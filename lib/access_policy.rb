@@ -24,8 +24,14 @@ module AccessPolicy
             render json: res_json, status: 403
         end
     end 
+    def generate_message_response_json(message)
+        response_data = {}
+        response_data['message'] = message
+        response_data
+    end
     def get_rules(parent_key,request_url)
         policy_master = policy_data()
+        return [] if !(policy_master.key?(parent_key) )
         eligible_rules = []
         policy_master[parent_key]["rules"].each do |rule|
             pattern ='absolute' #default

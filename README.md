@@ -20,10 +20,19 @@ Or install it yourself as:
 
 ## Usage
 
-  In the Application controller add AccessPolicy  module
+  #### In the Application controller add AccessPolicy  module
   ```include AccessPolicy```
-  define a yml under config and named it as ``access_policies.yml``. (you can download sample file here)
-  define a custom method in Application controller.
+  ##### define a yml under config and named it as ``access_policies.yml``. 
+  Sample file:  https://github.com/MijanurR/user_access_manager/blob/master/sample_access_policies.yml
+   ####  Add the following line in the application.rb
+   ``` config.AccessPolicyMaster = YAML::load(File.read("config/access_policies.yml")) ```
+   ``` 
+class Application < Rails::Application 
+        config.AccessPolicyMaster = YAML::load(File.read("config/access_policies.yml")) 
+ end
+ ```
+  
+  #### define a custom method in Application controller.
   ```
   def authorize_user_access
     user_role =  <get user role from current user>  
