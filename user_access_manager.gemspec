@@ -6,8 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["MijanurR"]
   spec.email         = ["sk.mijanur.rahaman@mettletech.in"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{Manage resource based on their roles} 
   spec.homepage      = "https://github.com/MijanurR/user_access_manager"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
