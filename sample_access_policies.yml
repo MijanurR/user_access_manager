@@ -1,0 +1,51 @@
+default:
+  default-action: deny
+  rules:
+    - url:
+        value: /api/v1/token
+      desc: user sessions
+      priority: 10
+      methods:
+        - POST 
+      action: allow
+user_role1: 
+  default-action: deny
+  rules:
+    - url: 
+        value: /api/v1/token
+      desc: user sessions
+      priority: 10
+      methods: 
+        - PUT
+        - DELETE
+      action: allow
+      
+    - url:
+        pattern: regex
+        value:  \/api\/v1\/columndefination\/[a-z]{1,20}
+      desc: get the grid column defination  
+      priority: 1
+      methods:
+        - GET
+      action: allow
+      
+   
+user_role2:
+  default-action: deny
+  inherits: user_role1
+  rules:
+    - url:
+        value: /api/v1/items/food
+      desc: get the records and update
+      priority: 10
+      methods:
+        - PATCH
+      action: allow
+      params:
+        - method: PATCH
+          param-location: json
+          param-path: $.product_action
+          values:
+            - accept
+            - submit
+  
