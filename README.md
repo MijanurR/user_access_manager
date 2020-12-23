@@ -21,6 +21,7 @@ Or install it yourself as:
 ## Usage
 
   #### In the Application controller add AccessPolicy  module
+  ```require 'access_policy'```
   ```include AccessPolicy```
   ##### define a yml under config and named it as ``access_policies.yml``. 
   Sample file:  https://github.com/MijanurR/user_access_manager/blob/master/sample_access_policies.yml
